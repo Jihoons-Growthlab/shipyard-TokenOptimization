@@ -1,0 +1,47 @@
+{
+  "period": {
+    "start": "2026-11-04T13:21:50.956Z",
+    "end": "2026-11-04T14:10:18.930Z"
+  },
+  "sessions": [
+    {
+      "id": "7ddba5fd",
+      "input_tokens": 130,
+      "output_tokens": 281057,
+      "cache_creation_input_tokens": 474177,
+      "cache_read_input_tokens": 20240217
+    }
+  ],
+  "models": {
+    "claude-opus-5-5": 63
+  },
+  "total": {
+    "input_tokens": 130,
+    "output_tokens": 281057,
+    "cache_creation_input_tokens": 474177,
+    "cache_read_input_tokens": 20240217,
+    "api_calls": 63,
+    "sum_all": 20995581
+  },
+  "prompts": [],
+  "skills": {},
+  "mcp": {
+    "mcp__playwright__browser_resize": 1,
+    "mcp__playwright__browser_navigate": 1,
+    "mcp__playwright__browser_run_code_unsafe": 27,
+    "mcp__playwright__browser_handle_dialog": 1,
+    "mcp__playwright__browser_take_screenshot": 1,
+    "mcp__playwright__browser_close": 1
+  },
+  "tools": {
+    "Read": 54,
+    "Bash": 49,
+    "mcp__playwright__browser_run_code_unsafe": 27,
+    "ToolSearch": 3,
+    "mcp__playwright__browser_resize": 1,
+    "mcp__playwright__browser_navigate": 1,
+    "mcp__playwright__browser_handle_dialog": 1,
+    "mcp__playwright__browser_take_screenshot": 1,
+    "mcp__playwright__browser_close": 1
+  }
+}

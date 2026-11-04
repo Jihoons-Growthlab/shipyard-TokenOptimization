@@ -1,0 +1,113 @@
+:root {
+  --c-PLAN: #94a3b8; --c-READY: #0ea5e9; --c-WORK: #2563eb; --c-DONE: #16a34a; --c-DELAY: #dc2626;
+  --navy: #12294a; --navy2: #1b3a66; --pri: #2563eb; --pri-d: #1d4ed8;
+  --bg: #f2f4f8; --panel: #fff; --line: #d9dee8; --line2: #edf0f5;
+  --ink: #1f2937; --muted: #6b7280; --err: #dc2626; --ok: #16a34a; --warn: #d97706;
+  --sel: #dbeafe; --hover: #f4f8ff; --head: #eef1f6; --tabs-bg: #e4e8f0; --tab-off: #cfd6e4;
+}
+* { box-sizing: border-box; }
+html, body, #app { height: 100%; margin: 0; }
+body {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
+  font-size: 13px; color: var(--ink); background: var(--bg);
+}
+h1, h2, h3, p { margin: 0; }
+h2 { font-size: 16px; }
+h3 { font-size: 13.5px; }
+a { color: var(--pri); }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* 버튼 */
+.btn {
+  height: 30px; padding: 0 13px; border-radius: 5px; background: #fff; border: 1px solid var(--line);
+  cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+}
+.btn:hover:not(:disabled) { background: var(--hover); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.pri { background: var(--pri); border-color: var(--pri); color: #fff; }
+.btn.pri:hover:not(:disabled) { background: var(--pri-d); }
+.btn.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+.btn.ok:hover:not(:disabled) { background: #15803d; }
+.btn.danger { color: var(--err); border-color: #fecaca; }
+.btn.sm { height: 24px; padding: 0 8px; font-size: 12px; }
+
+/* 입력 */
+.input, .field input, .field select, .field textarea {
+  height: 30px; padding: 4px 8px; border-radius: 5px; border: 1px solid var(--line); background: #fff; width: 100%; min-width: 0;
+}
+.field textarea { height: auto; resize: vertical; }
+.input:focus, .field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid #bfdbfe; outline-offset: 0; border-color: var(--pri);
+}
+.input:disabled, .input[readonly], .field input:disabled, .field input[readonly],
+.field select:disabled, .field textarea:disabled, .field textarea[readonly] { background: #f3f4f6; color: var(--muted); }
+.field { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.field > label, .field > .lbl { font-size: 12px; color: var(--muted); }
+.check { display: inline-flex; align-items: center; gap: 5px; height: 30px; font-size: 13px; }
+.check input { width: auto; height: auto; }
+.fg { display: grid; gap: 10px 12px; align-items: end; }
+.fg.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fg.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fg.c6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.span2 { grid-column: span 2; } .span3 { grid-column: span 3; } .span4 { grid-column: span 4; } .span6 { grid-column: span 6; }
+
+/* 제목줄·카드 */
+.ph { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.ph .desc { font-size: 12px; color: var(--muted); }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.card > h3 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+
+/* 조회 필터 */
+.filters { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.filters select.input { width: 110px; }
+.filters input.input { width: 148px; }
+.filters .right { margin-left: auto; }
+.total { margin-top: 6px; font-size: 12px; color: var(--muted); }
+
+/* 표 */
+.tw { overflow: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.tw.r3 { height: 140px; }
+table.t { width: 100%; border-collapse: separate; border-spacing: 0; }
+.t th { background: var(--head); padding: 7px 9px; font-weight: 600; text-align: left; position: sticky; top: 0; z-index: 1; white-space: nowrap; border-bottom: 1px solid var(--line); }
+.t td { padding: 6px 9px; border-bottom: 1px solid var(--line2); white-space: nowrap; }
+.t td.wrap { white-space: normal; }
+.t tbody tr:hover { background: var(--hover); }
+.t tbody tr.selected { background: var(--sel); }
+.t tbody tr.click { cursor: pointer; }
+.t td.num { text-align: right; }
+.t .ctr { text-align: center; }
+.t .empty { text-align: center; color: var(--muted); padding: 18px; }
+
+/* 배지 */
+.bdg { display: inline-block; font-size: 11.5px; border-radius: 10px; padding: 1px 8px; background: #e2e8f0; color: #475569; white-space: nowrap; }
+.bdg.PLAN, .bdg.DRAFT { background: #e2e8f0; color: #475569; }
+.bdg.READY, .bdg.APPROVED { background: #e0f2fe; color: #0369a1; }
+.bdg.WORK, .bdg.info { background: #dbeafe; color: #1d4ed8; }
+.bdg.DONE, .bdg.ISSUED, .bdg.ok { background: #dcfce7; color: #15803d; }
+.bdg.DELAY, .bdg.bad { background: #fee2e2; color: #b91c1c; }
+.bdg.REVIEW, .bdg.warn { background: #fef3c7; color: #92400e; }
+.bdg.OBSOLETE { background: #f3f4f6; color: #9ca3af; text-decoration: line-through; }
+.readonly-badge { background: #fef3c7; color: #92400e; font-size: 11px; border-radius: 10px; padding: 1px 8px; }
+
+/* 안내 */
+.note { font-size: 12.5px; padding: 8px 12px; border-radius: 6px; border: 1px solid; margin-bottom: 10px; }
+.note.warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.note.ok { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.muted { color: var(--muted); }
+.link { color: var(--pri); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+
+/* 토스트 */
+.toasts { position: fixed; right: 20px; bottom: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 8px; }
+.toast { background: #111827; color: #fff; padding: 9px 14px; border-radius: 6px; box-shadow: 0 6px 18px rgba(0, 0, 0, .25); }
+.toast.error { background: #b91c1c; }
+.toast.success { background: #15803d; }
+
+/* 서브탭 */
+.subtabs { display: flex; gap: 2px; border-bottom: 2px solid var(--line); margin-bottom: 12px; }
+.subtabs button { height: 32px; padding: 0 14px; border: 1px solid transparent; background: none; cursor: pointer; border-radius: 6px 6px 0 0; color: var(--muted); margin-bottom: -2px; }
+.subtabs button.active { background: #fff; color: var(--pri); font-weight: 700; border-color: var(--line); border-bottom-color: #fff; }
+
+@media (max-width: 720px) {
+  .fg.c4, .fg.c6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .span3, .span4, .span6 { grid-column: span 2; }
+}
